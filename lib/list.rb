@@ -26,4 +26,7 @@ class List
     self.name == another_list.name && self.id == another_list.id
   end
 
+  def sort
+    sorted_list = DB.exec("SELECT * FROM lists ORDER BY name ASC;")
+  end
 end

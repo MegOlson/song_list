@@ -30,9 +30,19 @@ describe(List) do
 
   describe("#==") do
     it("is the same list if it has the same name") do
-      list1 = List.new({:name => "Epicodus stuff", :id => nil})
-      list2 = List.new({:name => "Epicodus stuff", :id => nil})
+      list1 = List.new({:name => "Jingle Bells", :id => nil})
+      list2 = List.new({:name => "Jingle Bells", :id => nil})
       expect(list1).to eq list2
+    end
+  end
+
+  describe("sort") do
+    it("sorts items in the list alphabetically") do
+      list1 = List.new({:name => "Jingle Bells", :id => nil})
+      list1.save
+      list2 = List.new({:name => "Happy Holidays", :id => nil})
+      list2.save
+      expect(list.sort.first.fetch(@name)).to eq [list2, list1]
     end
   end
 end
