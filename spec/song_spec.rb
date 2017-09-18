@@ -16,4 +16,12 @@ describe(Song) do
     end
   end
 
+  describe("#id") do
+    it("assigns the id when saved") do
+      list.save
+      expect(list.id).to be_an_instance_of Fixnum
+    end
+  end
+
+
 end

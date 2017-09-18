@@ -17,6 +17,10 @@ class Song
     songs
   end
 
+  def save
+    result = DB.exec("INSERT INTO songs (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first.fetch("id").to_i
+  end
 
 
 end
