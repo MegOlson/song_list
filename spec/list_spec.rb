@@ -7,5 +7,15 @@ describe(List) do
       expect(List.all).to eq []
     end
   end
+
+  describe("#name") do
+    it("tells you the name") do
+      expect(list.name).to eq "Jingle Bells"
+    end
+  end
+
   
+
+
+
 end

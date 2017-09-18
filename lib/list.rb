@@ -3,7 +3,7 @@ class List
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
-    @id = atrtibutes.fetch(:id)
+    @id = attributes.fetch(:id)
   end
 
   def self.all
@@ -16,4 +16,11 @@ class List
     end
     lists
   end
+
+  def save
+    result = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first.fetch("id").to_i
+  end
+
+
 end
