@@ -23,5 +23,18 @@ describe(Song) do
     end
   end
 
+  describe("#save") do
+    it("lets you save lists to database") do
+      list.save
+      expect(Song.all).to eq [list]
+    end
+  end
 
+  describe("#==") do
+    it("is the same list if it has the same name") do
+      song1 = Song.new({:name => "Jingle Bells", :id => 1})
+      song2 = Song.new({:name => "Jingle Bells", :id => 1})
+      expect(song1).to eq song2
+    end
+  end
 end

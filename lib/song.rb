@@ -12,7 +12,7 @@ class Song
     returned_songs.each() do |song|
       name = song.fetch("name")
       id = song.fetch("id").to_i
-      songs.push(Item.new({:name => name, :id => id}))
+      songs.push(Song.new({:name => name, :id => id}))
     end
     songs
   end
@@ -22,5 +22,7 @@ class Song
     @id = result.first.fetch("id").to_i
   end
 
-
+  def ==(another_list)
+    self.name == another_list.name && self.id == another_list.id
+  end
 end
